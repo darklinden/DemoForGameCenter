@@ -7,7 +7,7 @@
 //
 
 #import "GameCenterHelper.h"
-#import <GameKit/GameKit.h>
+#import "V_loading.h"
 
 @interface GameCenterHelper () <GKGameCenterControllerDelegate>
 
@@ -37,37 +37,35 @@
     return localPlayer.isAuthenticated;
 }
 
-+ (void)loadTopScoleWithIds:(NSArray *)ids
-                 completion:(void(^)(NSDictionary *scoles, NSDictionary *errors))completionHandle
++ (void)loadTopScoreWithIds:(NSArray *)ids
+                 completion:(void(^)(NSDictionary *scores, NSDictionary *errors))completionHandle
 {
+    __block NSInteger count = 0;
+    __block NSMutableDictionary *dict_result = [NSMutableDictionary dictionary];
+    __block NSMutableDictionary *dict_err = [NSMutableDictionary dictionary];
+    
+    for (NSString *identifier in ids) {
+        GKScore *s = [[GKScore alloc] initWithLeaderboardIdentifier:identifier];
+        s.value = [self localTopScoreWithId:identifier];
+        [dict_result setObject:@[s] forKey:identifier];
+    }
+    
     if (![self isAuthenticated]) {
         if (completionHandle) {
-            
-            NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-            for (NSString *identifier in ids) {
-                GKScore *s = [[GKScore alloc] initWithLeaderboardIdentifier:identifier];
-                s.value = [self localTopScoleWithId:identifier];
-                [dict setObject:@[s] forKey:identifier];
-            }
-            
             dispatch_async(dispatch_get_main_queue(), ^{
-                completionHandle(dict, nil);
+                completionHandle(dict_result, nil);
             });
         }
         return;
     }
     
-    __block NSInteger count = 0;
-    __block NSMutableDictionary *dict_result = [NSMutableDictionary dictionary];
-    __block NSMutableDictionary *dict_err = [NSMutableDictionary dictionary];
-    
-    void(^allComplete)(NSArray *scoles, NSString *category, NSError *error) =
-    ^(NSArray *scoles, NSString *category, NSError *err)
+    void(^allComplete)(NSArray *scores, NSString *category, NSError *error) =
+    ^(NSArray *scores, NSString *category, NSError *err)
     {
         count++;
         
-        if (scoles && category) {
-            [dict_result setObject:scoles forKey:category];
+        if (scores && category) {
+            [dict_result setObject:scores forKey:category];
         }
         
         if (err && category) {
@@ -84,12 +82,12 @@
     };
     
     for (NSString *identifier in ids) {
-        [self loadTopScoleWithId:identifier completion:allComplete];
+        [self loadTopScoreWithId:identifier completion:allComplete];
     }
 }
 
-+ (void)loadTopScoleWithId:(NSString *)identifier
-                completion:(void(^)(NSArray *scole, NSString *category, NSError *error))completionHandle
++ (void)loadTopScoreWithId:(NSString *)identifier
+                completion:(void(^)(NSArray *score, NSString *category, NSError *error))completionHandle
 {
     GKLocalPlayer *player = [GKLocalPlayer localPlayer];
 	GKLeaderboard* leaderBoard = [[GKLeaderboard alloc] initWithPlayerIDs:@[player.playerID]];
@@ -100,7 +98,7 @@
 	[leaderBoard loadScoresWithCompletionHandler:^(NSArray *scores, NSError *error)
      {
          GKScore *s = [scores firstObject];
-         [self saveLocalScoleWithId:identifier value:s.value];
+         [self saveLocalScoreWithId:identifier value:s.value];
          
          if (completionHandle) {
              dispatch_async(dispatch_get_main_queue(), ^(void)
@@ -111,12 +109,12 @@
      }];
 }
 
-+ (void)uploadScoleWithIds:(NSDictionary *)scoles
++ (void)uploadScoreWithIds:(NSDictionary *)scores
                 completion:(void(^)(NSError *error))completionHandle
 {
-    for (NSString *identifier in scoles.allKeys) {
-        NSNumber *num = scoles[identifier];
-        [self saveLocalTopScoleWithId:identifier value:num.longLongValue];
+    for (NSString *identifier in scores.allKeys) {
+        NSNumber *num = scores[identifier];
+        [self saveLocalTopScoreWithId:identifier value:num.longLongValue];
     }
     
     if (![self isAuthenticated]) {
@@ -130,8 +128,8 @@
     
     NSMutableArray *array = [NSMutableArray array];
     
-    for (NSString *identifier in scoles.allKeys) {
-        NSNumber *num = scoles[identifier];
+    for (NSString *identifier in scores.allKeys) {
+        NSNumber *num = scores[identifier];
         
         GKScore *scoreObj = [[GKScore alloc] initWithLeaderboardIdentifier:identifier];
         scoreObj.value = num.longLongValue;
@@ -148,23 +146,23 @@
     }];
 }
 
-+ (void)saveLocalTopScoleWithId:(NSString *)identifier value:(int64_t)value
++ (void)saveLocalTopScoreWithId:(NSString *)identifier value:(int64_t)value
 {
-    int64_t s = [self localTopScoleWithId:identifier];
+    int64_t s = [self localTopScoreWithId:identifier];
     
     s = MAX(value, s);
     
-    [self saveLocalScoleWithId:identifier value:s];
+    [self saveLocalScoreWithId:identifier value:s];
 }
 
-+ (void)saveLocalScoleWithId:(NSString *)identifier value:(int64_t)value
++ (void)saveLocalScoreWithId:(NSString *)identifier value:(int64_t)value
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     [df setObject:@(value) forKey:identifier];
     [df synchronize];
 }
 
-+ (int64_t)localTopScoleWithId:(NSString *)identifier
++ (int64_t)localTopScoreWithId:(NSString *)identifier
 {
     NSUserDefaults *df = [NSUserDefaults standardUserDefaults];
     NSNumber *num = [df objectForKey:identifier];
@@ -177,13 +175,12 @@
     GKGameCenterViewController *leaderboardController = [[GKGameCenterViewController alloc] init];
 	if (leaderboardController)
 	{
-//		leaderboardController.leaderboardIdentifier = kEasyLeaderboardID; //self.currentLeaderBoard;
-        //		leaderboardController.timeScope = GKLeaderboardTimeScopeAllTime;
 		leaderboardController.gameCenterDelegate = [self sharedGameCenterDelegate];
         UIViewController *root = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
         if (root.presentedViewController || root.presentingViewController) {
             [root dismissViewControllerAnimated:NO completion:nil];
         }
+        [V_loading showLoadingView:nil title:nil message:nil];
 		[root presentViewController:leaderboardController animated:YES completion:nil];
 	}
 }
@@ -199,6 +196,7 @@
 
 - (void)gameCenterViewControllerDidFinish:(GKGameCenterViewController *)gameCenterViewController
 {
+    [V_loading removeLoading];
     UIViewController *root = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     if (root.presentedViewController || root.presentingViewController) {
         [root dismissViewControllerAnimated:YES completion:nil];

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>62E0F8F6-B428-4232-886F-7009FA2E3294</string>
+	<key>IDESourceControlProjectName</key>
+	<string>DemoForGameCenter</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C4C7545E-131C-422D-8C73-1ED0243876D7</key>
+		<string>https://github.com/darklinden/DemoForGameCenter.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>DemoForGameCenter.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C4C7545E-131C-422D-8C73-1ED0243876D7</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/darklinden/DemoForGameCenter.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C4C7545E-131C-422D-8C73-1ED0243876D7</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C4C7545E-131C-422D-8C73-1ED0243876D7</string>
+			<key>IDESourceControlWCCName</key>
+			<string>DemoForGameCenter</string>
+		</dict>
+	</array>
+</dict>
+</plist>

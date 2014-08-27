@@ -7,24 +7,25 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GameKit/GameKit.h>
 
 @interface GameCenterHelper : NSObject
 
 + (void)auth;
 + (BOOL)isAuthenticated;
 
-//scole only support int type and high to low sort
+//score only support int type and high to low sort
 
-+ (void)loadTopScoleWithIds:(NSArray *)ids
-                 completion:(void(^)(NSDictionary *scoles, NSDictionary *errors))completionHandle;
++ (void)loadTopScoreWithIds:(NSArray *)ids
+                 completion:(void(^)(NSDictionary *scores, NSDictionary *errors))completionHandle;
 
-+ (void)uploadScoleWithIds:(NSDictionary *)scoles
++ (void)uploadScoreWithIds:(NSDictionary *)scores
                  completion:(void(^)(NSError *error))completionHandle;
 
 + (void)showList;
 
-+ (int64_t)localTopScoleWithId:(NSString *)identifier;
++ (int64_t)localTopScoreWithId:(NSString *)identifier;
 
-+ (void)saveLocalTopScoleWithId:(NSString *)identifier value:(int64_t)value;
++ (void)saveLocalTopScoreWithId:(NSString *)identifier value:(int64_t)value;
 
 @end

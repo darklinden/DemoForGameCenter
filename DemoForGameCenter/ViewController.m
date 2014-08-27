@@ -15,9 +15,9 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *pLb_category_1;
-@property (weak, nonatomic) IBOutlet UILabel *pLb_best_scole_1;
+@property (weak, nonatomic) IBOutlet UILabel *pLb_best_score_1;
 @property (weak, nonatomic) IBOutlet UILabel *pLb_category_2;
-@property (weak, nonatomic) IBOutlet UILabel *pLb_best_scole_2;
+@property (weak, nonatomic) IBOutlet UILabel *pLb_best_score_2;
 
 @end
 
@@ -48,35 +48,35 @@
 }
 
 - (IBAction)pBtn_load_best_clicked:(id)sender {
-    [GameCenterHelper loadTopScoleWithIds:@[Identifier_1, Identifier_2]
-                               completion:^(NSDictionary *scoles, NSDictionary *errors)
+    [GameCenterHelper loadTopScoreWithIds:@[Identifier_1, Identifier_2]
+                               completion:^(NSDictionary *scores, NSDictionary *errors)
     {
         NSLog(@"%@", errors);
-        NSLog(@"%@", scoles);
+        NSLog(@"%@", scores);
         
-        if (scoles[Identifier_1]) {
-            NSArray *arr = scoles[Identifier_1];
+        if (scores[Identifier_1]) {
+            NSArray *arr = scores[Identifier_1];
             GKScore *s = [arr firstObject];
-            _pLb_best_scole_1.text = [NSString stringWithFormat:@"%lld", s.value];
+            _pLb_best_score_1.text = [NSString stringWithFormat:@"%lld", s.value];
         }
         
-        if (scoles[Identifier_2]) {
-            NSArray *arr = scoles[Identifier_2];
+        if (scores[Identifier_2]) {
+            NSArray *arr = scores[Identifier_2];
             GKScore *s = [arr firstObject];
-            _pLb_best_scole_2.text = [NSString stringWithFormat:@"%lld", s.value];
+            _pLb_best_score_2.text = [NSString stringWithFormat:@"%lld", s.value];
         }
     }];
 }
 
 - (IBAction)pBtn_make_new_best_clicked:(id)sender {
-    int64_t i1 = _pLb_best_scole_1.text.longLongValue;
-    int64_t i2 = _pLb_best_scole_2.text.longLongValue;
+    int64_t i1 = _pLb_best_score_1.text.longLongValue;
+    int64_t i2 = _pLb_best_score_2.text.longLongValue;
     
     i1++, i2++;
     
     NSDictionary *upload = @{Identifier_1: @(i1), Identifier_2: @(i2)};
     
-    [GameCenterHelper uploadScoleWithIds:upload completion:^(NSError *error) {
+    [GameCenterHelper uploadScoreWithIds:upload completion:^(NSError *error) {
         NSLog(@"%@", error);
     }];
 }

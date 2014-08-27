@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C06F9E719AD8402002D3D44 /* O_weak_list.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C06F9E019AD8402002D3D44 /* O_weak_list.m */; };
+		1C06F9E819AD8402002D3D44 /* SimpleConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C06F9E319AD8402002D3D44 /* SimpleConstraint.m */; };
+		1C06F9E919AD8402002D3D44 /* V_loading.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C06F9E619AD8402002D3D44 /* V_loading.m */; };
+		1C06F9ED19AD841A002D3D44 /* GameCenterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C06F9EC19AD841A002D3D44 /* GameCenterHelper.m */; };
 		1C0890A119AB422C00B76ED2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0890A019AB422C00B76ED2 /* Foundation.framework */; };
 		1C0890A319AB422C00B76ED2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0890A219AB422C00B76ED2 /* CoreGraphics.framework */; };
 		1C0890A519AB422C00B76ED2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C0890A419AB422C00B76ED2 /* UIKit.framework */; };
@@ -21,7 +25,6 @@
 		1C0890C619AB422C00B76ED2 /* DemoForGameCenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0890C519AB422C00B76ED2 /* DemoForGameCenterTests.m */; };
 		1C0890D219AB425000B76ED2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0890D019AB425000B76ED2 /* ViewController.m */; };
 		1C0890D319AB425000B76ED2 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1C0890D119AB425000B76ED2 /* ViewController.xib */; };
-		1C0890D619AB436800B76ED2 /* GameCenterHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0890D519AB436800B76ED2 /* GameCenterHelper.m */; };
 		1C09854119AC173000D6B4F0 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C09854019AC173000D6B4F0 /* GameKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C06F9DF19AD8402002D3D44 /* O_weak_list.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = O_weak_list.h; sourceTree = "<group>"; };
+		1C06F9E019AD8402002D3D44 /* O_weak_list.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = O_weak_list.m; sourceTree = "<group>"; };
+		1C06F9E219AD8402002D3D44 /* SimpleConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleConstraint.h; sourceTree = "<group>"; };
+		1C06F9E319AD8402002D3D44 /* SimpleConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleConstraint.m; sourceTree = "<group>"; };
+		1C06F9E519AD8402002D3D44 /* V_loading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V_loading.h; sourceTree = "<group>"; };
+		1C06F9E619AD8402002D3D44 /* V_loading.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V_loading.m; sourceTree = "<group>"; };
+		1C06F9EB19AD841A002D3D44 /* GameCenterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterHelper.h; sourceTree = "<group>"; };
+		1C06F9EC19AD841A002D3D44 /* GameCenterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterHelper.m; sourceTree = "<group>"; };
 		1C08909D19AB422C00B76ED2 /* DemoForGameCenter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoForGameCenter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C0890A019AB422C00B76ED2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1C0890A219AB422C00B76ED2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -55,8 +66,6 @@
 		1C0890CF19AB425000B76ED2 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		1C0890D019AB425000B76ED2 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		1C0890D119AB425000B76ED2 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
-		1C0890D419AB436800B76ED2 /* GameCenterHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GameCenterHelper.h; path = GameCenterHelper/GameCenterHelper.h; sourceTree = SOURCE_ROOT; };
-		1C0890D519AB436800B76ED2 /* GameCenterHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GameCenterHelper.m; path = GameCenterHelper/GameCenterHelper.m; sourceTree = SOURCE_ROOT; };
 		1C09854019AC173000D6B4F0 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -85,9 +94,49 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C06F9DE19AD8402002D3D44 /* O_weak_list */ = {
+			isa = PBXGroup;
+			children = (
+				1C06F9DF19AD8402002D3D44 /* O_weak_list.h */,
+				1C06F9E019AD8402002D3D44 /* O_weak_list.m */,
+			);
+			path = O_weak_list;
+			sourceTree = "<group>";
+		};
+		1C06F9E119AD8402002D3D44 /* SimpleConstraint */ = {
+			isa = PBXGroup;
+			children = (
+				1C06F9E219AD8402002D3D44 /* SimpleConstraint.h */,
+				1C06F9E319AD8402002D3D44 /* SimpleConstraint.m */,
+			);
+			path = SimpleConstraint;
+			sourceTree = "<group>";
+		};
+		1C06F9E419AD8402002D3D44 /* V_loading */ = {
+			isa = PBXGroup;
+			children = (
+				1C06F9E519AD8402002D3D44 /* V_loading.h */,
+				1C06F9E619AD8402002D3D44 /* V_loading.m */,
+			);
+			path = V_loading;
+			sourceTree = "<group>";
+		};
+		1C06F9EA19AD841A002D3D44 /* GameCenterHelper */ = {
+			isa = PBXGroup;
+			children = (
+				1C06F9EB19AD841A002D3D44 /* GameCenterHelper.h */,
+				1C06F9EC19AD841A002D3D44 /* GameCenterHelper.m */,
+			);
+			path = GameCenterHelper;
+			sourceTree = "<group>";
+		};
 		1C08909419AB422C00B76ED2 = {
 			isa = PBXGroup;
 			children = (
+				1C06F9EA19AD841A002D3D44 /* GameCenterHelper */,
+				1C06F9DE19AD8402002D3D44 /* O_weak_list */,
+				1C06F9E119AD8402002D3D44 /* SimpleConstraint */,
+				1C06F9E419AD8402002D3D44 /* V_loading */,
 				1C0890A619AB422C00B76ED2 /* DemoForGameCenter */,
 				1C0890BF19AB422C00B76ED2 /* DemoForGameCenterTests */,
 				1C08909F19AB422C00B76ED2 /* Frameworks */,
@@ -126,8 +175,6 @@
 				1C0890CF19AB425000B76ED2 /* ViewController.h */,
 				1C0890D019AB425000B76ED2 /* ViewController.m */,
 				1C0890D119AB425000B76ED2 /* ViewController.xib */,
-				1C0890D419AB436800B76ED2 /* GameCenterHelper.h */,
-				1C0890D519AB436800B76ED2 /* GameCenterHelper.m */,
 			);
 			path = DemoForGameCenter;
 			sourceTree = "<group>";
@@ -257,9 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C0890D619AB436800B76ED2 /* GameCenterHelper.m in Sources */,
 				1C0890D219AB425000B76ED2 /* ViewController.m in Sources */,
 				1C0890B119AB422C00B76ED2 /* AppDelegate.m in Sources */,
+				1C06F9ED19AD841A002D3D44 /* GameCenterHelper.m in Sources */,
+				1C06F9E719AD8402002D3D44 /* O_weak_list.m in Sources */,
+				1C06F9E919AD8402002D3D44 /* V_loading.m in Sources */,
+				1C06F9E819AD8402002D3D44 /* SimpleConstraint.m in Sources */,
 				1C0890AD19AB422C00B76ED2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
